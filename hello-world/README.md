@@ -17,6 +17,8 @@ $ docker run -it demo flux start --test-size=4 maestro run study/hello-world-flu
 
 <details>
 
+<summary>Output of Maestro</summary>
+
 ```console
 [2023-06-17 03:04:53: INFO] INFO Logging Level -- Enabled
 [2023-06-17 03:04:53: WARNING] WARNING Logging Level -- Enabled

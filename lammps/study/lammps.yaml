@@ -15,7 +15,11 @@ study:
       run:
           cmd: |
             cd /home/flux/examples/reaxff/HNS
-            lmp -v x $(X) -v y $(Y) -v z $(Z) -in in.reaxc.hns -nocite
+            # Don't run as root, kids
+            # If you run this on more than one node, you can adjust the size, etc.
+            export OMPI_ALLOW_RUN_AS_ROOT=1
+            export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
+            mpirun -np 2 --map-by socket lmp -v x $(X) -v y $(Y) -v z $(Z) -in in.reaxc.hns -nocite
           nodes: 1
           procs: 1
           cores per task: 1

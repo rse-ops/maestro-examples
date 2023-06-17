@@ -6,12 +6,6 @@ Build the container:
 $ docker build -t demo .
 ```
 
-Shell in!
-
-```bash
-$ docker run -it demo bash
-```
-
 We have two examples in "study":
 
 ```bash

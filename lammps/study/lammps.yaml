@@ -1,0 +1,36 @@
+description:
+    name: lammps_sample1
+    description: A sample maestro working running lammps in the container across a small set of problem sizes.
+
+env:
+    variables:
+        OUTPUT_PATH: ./studies/lammps
+
+    labels:
+        outfile: $(X.label).$(Y.label).$(Z.label).log
+
+study:
+    - name: run-lammps
+      description: Run LAMMPS.
+      run:
+          cmd: |
+            cd /home/flux/examples/reaxff/HNS
+            lmp -v x $(X) -v y $(Y) -v z $(Z) -in in.reaxc.hns -nocite
+          nodes: 1
+          procs: 1
+          cores per task: 1
+          nested: True
+          priority: high
+          walltime: "00:60:00"
+
+# Note that I reduced these sizes for a single container run
+global.parameters:
+    X:
+        values  : [1, 2]
+        label   : X.%%
+    Y:
+        values  : [1, 2]
+        label   : Y.%%
+    Z:
+        values  : [1, 2]
+        label   : Z.%%

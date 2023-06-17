@@ -5,3 +5,4 @@ to package in a docker container!
 
  - [Hello World](hello-world): run a hello-world example with or without Flux in a container.
  - [Lulesh](lulesh): a small example with lulesh plus Flux Framework in a container.
+ - [LAMMPS](lammps): a simple example of LAMMPS across a small set of problem sizes.
